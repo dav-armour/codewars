@@ -36,3 +36,22 @@ end
   p sum_pairs(l6, 8) == [4, 4]
   p sum_pairs(l7, 0) == [0, 0]
   p sum_pairs(l8, 10) == [13, -3]
+
+def sum_pairs(ints, s)
+  #your code here
+  seen = {}
+  answer = nil
+  max_index = ints.length
+  i = 0
+  j = ints.length
+  while i < j
+    num1 = ints[i]
+    index = ints.index(s - num1)
+    if index && index < j && index != i
+      answer = [num1, s - num1]
+      j = index
+    end
+    i += 1
+  end
+  answer
+end
